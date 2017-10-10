@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 270">
+    <style>
+    .st0 {
+        fill: #0A6673;
+    }
+    
+    .st1 {
+        fill: none;
+        stroke: #0A6673;
+        stroke-width: 1.1306;
+        stroke-miterlimit: 10;
+    }
+    
+    .st2 {
+        fill: none;
+        stroke: #0A6673;
+        stroke-width: 1.1306;
+        stroke-miterlimit: 10;
+        stroke-dasharray: 6.7834;
+    }
+    </style>
+    <circle class="st0" cx="133.4" cy="155.9" r="35.1" />
+    <circle class="st0" cx="198.4" cy="31.8" r="21.7" />
+    <circle class="st0" cx="39.5" cy="162.2" r="21.7" />
+    <circle class="st0" cx="211.8" cy="226.2" r="13.4" />
+    <circle class="st0" cx="98.3" cy="245.9" r="13.4" />
+    <circle class="st0" cx="87.9" cy="74.2" r="8.3" />
+    <circle class="st0" cx="244.7" cy="140.5" r="8.3" />
+    <path class="st1" d="M91.9 81.4l25.2 43.4" />
+    <path class="st2" d="M152 126l35.8-75.2M167.9 148.8l68.5-8.3" />
+    <path class="st1" d="M157.5 181.5l44.6 35.4M123.8 189.7L104.5 234" />
+    <path class="st2" d="M98.3 155.9l-37.1 2.8" />
+</svg>

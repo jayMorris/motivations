@@ -1,0 +1,106 @@
+{# # Homepage template # --------------- # # When this template gets loaded, it will be because someone has accessed # http://yoursite.com/ (without any URI). Craft checks to see if you have # a Single section set to be the Homepage (as you do, by default), and # loads the section’s Template (this file). A special ‘entry’ variable # will already be set for you, assigned to the Homepage entry. # # It's worth noting that even if you didn't have a Homepage Single section, # as long as this template remains at craft/templates/index.html, it # would still be the one to get loaded when accessing http://yoursite.com/, # albeit without an ‘entry’ variable already set for you. # # See this page for more details on how Craft routes requests: # http://craftcms.com/docs/routing #}
+{% extends "_layout" %}
+{% block main %}
+<div class="header-image" data-0="transform:scale(1);" data-80p="transform:scale(1.10);" style="background-image: url('{{ entry.heroImage.first().getUrl() }}')"> 
+</div>
+<header>
+    <div class="motivate-container">
+        <div class="hero-wrap">
+            <div class="hero-content">
+                <div class="logo responsive-image"><img class="responsive-image" src="{{ entry.logo.first().getUrl() }}" /></div>
+                <a href="#contact-us">
+                    <div class="moto-cta moto-cta-primary moto-cta-hov-a">Get In Touch</div>
+                </a>
+                <div class="intro-copy">
+                    {{ entry.heroText }}
+                </div>
+                <div class="arrow" data-0="opacity: 1;" data-250="opacity: 0;">
+                    <a href="#section-two">
+                        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.5 14.9">
+                            <path class="down" d="M5 8.4V0H2.4v8.4H0l3.7 6.5 3.8-6.5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="section-two">
+    <div class="section-points">
+        <div class="container">
+            <div class="row mot-list-row">
+                <div class="col-sm-12">
+                    <h1>Our Philosophy</h1>
+                </div>
+                {% for cta in craft.entries.section('homepageCtaBlurb').limit(3).find() %}
+                <div class="col-sm-4">
+                    <ul class="list-unstyled mot-list-row-item">
+                        <li>
+                            {% if loop.first %}
+                            <div class="section-point" data-0="transform:translateX(-100%);" data-0-bottom-bottom="transform:translateX(0%);">
+                                {% elseif loop.index0 == 1 %}
+                                <div class="section-point" data-0="transform:translateY(100%);" data-0-bottom-bottom="transform:translateY(0%);">
+                                    {% else %}
+                                    <div class="section-point" data-0="transform:translateX(100%);" data-0-bottom-bottom="transform:translateX(0%);">
+                                        {% endif %}
+                                        <div class="mot-list-row-img-wrap" data-text="Breakthrough Stigma">
+                                            <img src="{{ cta.icon.first().getUrl() }}" />
+                                        </div>
+                                        <h3>{{ cta.title }}</h3>
+                                        <p>{{ cta.introText }}</p>
+                                        <a href="{{ cta.ctaButtonUrl.first().getUrl() }}">
+                                            <div class="moto-cta  moto-cta-secondary moto-cta-hov-a">{{ cta.ctaButtonText }}</div>
+                                        </a>
+                                    </div>
+                        </li>
+                    </ul>
+                    </div>
+                    {% endfor %}
+                    </ul>
+                    </div>
+                </div>
+</section>
+<section id="contact-us" class="contact-wrap clearfix container-fluid">
+    <p>
+        <small></small></p>
+    <div class="row contact-info">
+        <div class="col-sm-12">
+            <h1>Get in touch with us
+                <small>for more information or to schedule a tour.</small></h1>
+        </div>
+    </div>
+    <form action="" class="contact-form" id="mycontactform" method="post">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-block">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" name="first-name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-block">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control" name="last-name">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="input-block">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" name="email">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="input-block textarea">
+                    <label for="">Message</label>
+                    <textarea rows="3" type="text" class="form-control" name="message"></textarea>
+                </div>
+            </div>
+            <div id="success" class="col-sm-10">
+            </div>
+            <div class="col-sm-2 text-right">
+                <button id="submit" class="square-button  moto-cta-hov-a"><span>Send</span></button>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

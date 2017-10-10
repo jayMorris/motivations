@@ -1,0 +1,46 @@
+{% extends "_layout" %}
+
+{% block main %}
+<div class="hero-container">
+    <img class="img-responsive" src="{{ entry.heroImage.first().getUrl('hero') }}">
+    <h1 data-0="opacity: 1; bottom: 10%;" data-500="opacity: 0.2; bottom: 0%;">{{ entry.title }}</h1>
+</div>
+<section class="first-section">
+    <div class="container">
+        {% for block in entry.generalPageContent %}
+            {% switch block.type %}
+            {% case 'copySection' %}
+        <div class="row general-content-row">
+            <div class="col-xs-12">
+                
+                <h2>{{ block.heading }}</h2>
+                {% if block.image | length %}
+                {% set image = block.image.first() %}
+                <img class="img-responsive {{ block.imagePlacement }}" src="{{image.url('copyImage')}}" />
+                {% endif %}
+                {% if block.subheading | length %}
+                <h3>{{ block.subheading }}</h3>
+                {% endif %}
+                {{ block.text }}
+            </div>
+        </div>
+        {% case 'gallerySection' %}
+        <div class="row image-gallery-row">
+                
+                    {% if block.heading | length %}
+                    <div class="col-xs-12">
+                    <h2>{{ block.heading }}</h2>
+                    </div>
+                    {% endif %}
+                    {% for image in block.image %}
+                    <div class="col-xs-6 col-sm-6 col-md-3">
+                        <img class="img-responsive"  src="{{ image.getUrl() }}" alt="{{ image.title }}">
+                    </div>
+                    {% endfor %}
+                    
+        </div>
+        {% endswitch %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
